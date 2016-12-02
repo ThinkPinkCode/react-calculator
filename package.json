@@ -16,6 +16,7 @@
   "dependencies": {
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",
+    "email-validator": "^1.0.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "watchify": "^3.7.0"
