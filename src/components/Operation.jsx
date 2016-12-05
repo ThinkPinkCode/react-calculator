@@ -5,6 +5,10 @@ var Operation = React.createClass({
         return {value: ""};
     },
 
+
+
+
+
     onChange: function(e) {
         this.setState({value: e.target.value});
     },

@@ -20450,25 +20450,14 @@ module.exports = require('./lib/React');
 },{"./lib/React":155}],178:[function(require,module,exports){
 var React = require('react');
 var InputField = require('./InputField.jsx');
-var NameField = require('./Operation.jsx');
+var sumResult;
 
 var Calc = React.createClass({
     displayName: 'Calc',
 
 
-    onSubmit: function (e) {
-        if (!this.refs.input1.state.valid || !this.refs.input2.state.valid) {
-            alert("Invalid entry. Please make sure your values are numbers!");
-        } else {
-            //send request to email host or server
-            var httpRequestBody = {
-                email: this.refs.fieldEmail.state.value,
-                firstName: this.refs.fieldName.state.value
-            };
-
-            this.refs.input1.clear();
-            this.refs.input2.clear();
-        }
+    addValues: function () {
+        console.log(input1.state.value);
     },
 
     render: function () {
@@ -20481,14 +20470,12 @@ var Calc = React.createClass({
                 React.createElement(
                     'div',
                     { className: 'panel panel-body' },
-                    React.createElement(NameField, { type: 'First', ref: 'fieldName' }),
-                    React.createElement('br', null),
                     React.createElement(InputField, { ref: 'input1' }),
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.onSubmit },
-                        'Submit'
+                        { className: 'btn btn-primary', onClick: this.addValues },
+                        'Add'
                     )
                 )
             )
@@ -20498,7 +20485,7 @@ var Calc = React.createClass({
 
 module.exports = Calc;
 
-},{"./InputField.jsx":179,"./NameFields.jsx":180,"react":177}],179:[function(require,module,exports){
+},{"./InputField.jsx":179,"react":177}],179:[function(require,module,exports){
 var React = require('react');
 
 var InputField = React.createClass({
@@ -20532,37 +20519,9 @@ module.exports = InputField;
 
 },{"react":177}],180:[function(require,module,exports){
 var React = require('react');
-
-var NameField = React.createClass({
-    displayName: "NameField",
-
-    getInitialState: function () {
-        return { value: "" };
-    },
-
-    onChange: function (e) {
-        this.setState({ value: e.target.value });
-    },
-
-    clear: function () {
-        this.setState({ value: "" });
-    },
-
-    render: function () {
-        return React.createElement("input", {
-            className: "form-control",
-            placeholder: this.props.type + " Name",
-            onChange: this.onChange, value: this.state.value });
-    }
-});
-
-module.exports = NameField;
-
-},{"react":177}],181:[function(require,module,exports){
-var React = require('react');
 var ReactDOM = require('react-dom');
 var Calc = require('./components/Calc.jsx');
 
 ReactDOM.render(React.createElement(Calc, null), document.getElementById('calc'));
 
-},{"./components/Calc.jsx":178,"react":177,"react-dom":26}]},{},[181]);
+},{"./components/Calc.jsx":178,"react":177,"react-dom":26}]},{},[180]);
