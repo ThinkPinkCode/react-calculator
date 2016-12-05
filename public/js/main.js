@@ -20451,6 +20451,7 @@ module.exports = require('./lib/React');
 var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
+//var Operation = require('./Operation.jsx');
 
 var Calc = React.createClass({
     displayName: 'Calc',
@@ -20464,12 +20465,15 @@ var Calc = React.createClass({
             value2: parseInt(this.refs.input2.state.value)
         };
 
-        console.log(valueStorage.value1);
+        this.refs.result1.setState({ value: valueStorage.value1 + valueStorage.value2 }), console.log(valueStorage.value1);
         console.log(valueStorage.value2);
         console.log(valueStorage.value1 + valueStorage.value2);
+    },
 
+    clear: function (e) {
         this.refs.input1.clear();
         this.refs.input2.clear();
+        this.refs.result1.clear();
     },
 
     render: function () {
@@ -20489,7 +20493,12 @@ var Calc = React.createClass({
                         { className: 'btn btn-primary', onClick: this.mathIt },
                         'Add'
                     ),
-                    React.createElement(Result, { ref: 'result' })
+                    React.createElement(
+                        'button',
+                        { className: 'btn btn-primary', onClick: this.clear },
+                        'Clear'
+                    ),
+                    React.createElement(Result, { ref: 'result1' })
                 )
             )
         );
@@ -20541,14 +20550,6 @@ var Result = React.createClass({
         return { value: "" };
     },
 
-    onChange: function (e) {
-        var val = e.target.value;
-
-        this.setState({ value: val });
-
-        console.log(val);
-    },
-
     clear: function () {
         this.setState({ value: "" });
     },
@@ -20560,7 +20561,9 @@ var Result = React.createClass({
             React.createElement(
                 "p",
                 null,
-                "Result"
+                "Result: ",
+                this.state.value,
+                " "
             )
         );
     }

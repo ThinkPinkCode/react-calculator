@@ -6,23 +6,16 @@ var Result = React.createClass({
         return {value: ""}
     },
 
-    onChange: function(e) {
-        var val = e.target.value;
-
-        this.setState({value: val});
-
-        console.log(val);
-    },
-
 
     clear: function(){
         this.setState({value: ""});
     },
 
+
     render: function () {
         return (
             <div>
-                <p>Result</p>
+                <p>Result: {this.state.value} </p>
             </div>
 
         );
