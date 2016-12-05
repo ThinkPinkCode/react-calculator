@@ -20457,7 +20457,7 @@ var Calc = React.createClass({
     displayName: 'Calc',
 
 
-    add: function (e) {
+    onChange: function (e) {
 
         var valueStorage = {
 
@@ -20465,40 +20465,25 @@ var Calc = React.createClass({
             value2: parseInt(this.refs.input2.state.value)
         };
 
-        this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
-    },
+        var mathOp = e.target.value;
 
-    subtract: function (e) {
+        switch (mathOp) {
+            case "add":
+                this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
+                break;
+            case "subtract":
+                this.refs.result.setState({ value: valueStorage.value1 - valueStorage.value2 });
+                break;
+            case "multiply":
+                this.refs.result.setState({ value: valueStorage.value1 * valueStorage.value2 });
+                break;
+            case "divide":
+                this.refs.result.setState({ value: valueStorage.value1 / valueStorage.value2 });
+                break;
+            default:
+                console.log("nope");
 
-        var valueStorage = {
-
-            value1: parseInt(this.refs.input1.state.value),
-            value2: parseInt(this.refs.input2.state.value)
-        };
-
-        this.refs.result.setState({ value: valueStorage.value1 - valueStorage.value2 });
-    },
-
-    divide: function (e) {
-
-        var valueStorage = {
-
-            value1: parseInt(this.refs.input1.state.value),
-            value2: parseInt(this.refs.input2.state.value)
-        };
-
-        this.refs.result.setState({ value: valueStorage.value1 / valueStorage.value2 });
-    },
-
-    multiply: function (e) {
-
-        var valueStorage = {
-
-            value1: parseInt(this.refs.input1.state.value),
-            value2: parseInt(this.refs.input2.state.value)
-        };
-
-        this.refs.result.setState({ value: valueStorage.value1 * valueStorage.value2 });
+        }
     },
 
     clear: function (e) {
@@ -20521,23 +20506,23 @@ var Calc = React.createClass({
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.add },
+                        { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
                         'Add'
                     ),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.subtract },
+                        { className: 'btn btn-primary', onClick: this.onChange, value: "subtract" },
                         'Subtract'
                     ),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.divide },
-                        'Divide'
+                        { className: 'btn btn-primary', onClick: this.onChange, value: "multiply" },
+                        'Multiply'
                     ),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.multiply },
-                        'Multiply'
+                        { className: 'btn btn-primary', onClick: this.onChange, value: "divide" },
+                        'Divide'
                     ),
                     React.createElement(
                         'button',
