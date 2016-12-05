@@ -20456,16 +20456,17 @@ var Calc = React.createClass({
     displayName: 'Calc',
 
 
-    toAdd: function (e) {
+    mathIt: function (e) {
 
         var valueStorage = {
 
-            value1: this.refs.input1.state.value,
-            value2: this.refs.input2.state.value
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value)
         };
 
         console.log(valueStorage.value1);
         console.log(valueStorage.value2);
+        console.log(valueStorage.value1 + valueStorage.value2);
 
         this.refs.input1.clear();
         this.refs.input2.clear();
@@ -20485,10 +20486,10 @@ var Calc = React.createClass({
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.toAdd },
+                        { className: 'btn btn-primary', onClick: this.mathIt },
                         'Add'
                     ),
-                    React.createElement(Result, null)
+                    React.createElement(Result, { ref: 'result' })
                 )
             )
         );
