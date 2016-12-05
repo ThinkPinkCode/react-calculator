@@ -1,5 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var LeadCapture = require('./components/LeadCapture.jsx');
+var Calc = require('./components/Calc.jsx');
 
-ReactDOM.render(<LeadCapture/>, document.getElementById('leadCapture'));
+ReactDOM.render(<Calc/>, document.getElementById('calc'));

@@ -1,7 +1,6 @@
 var React = require('react');
-var validator = require('email-validator');
 
-var EmailField = React.createClass({
+var InputField = React.createClass({
     getInitialState: function(){
         return {valid: true, value: ""}
     },

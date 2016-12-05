@@ -1,9 +1,9 @@
 var React = require('react');
-var EmailField = require('./EmailField.jsx');
+var InputField = require('./InputField.jsx');
 var NameField = require('./NameFields.jsx');
 
 
-var LeadCapture = React.createClass({
+var Calc = React.createClass({
 
     onSubmit: function(e) {
         if (!this.refs.fieldEmail.state.valid){
@@ -41,4 +41,4 @@ var LeadCapture = React.createClass({
     }
 });
 
-module.exports = LeadCapture;
+module.exports = Calc;
