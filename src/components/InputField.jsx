@@ -10,8 +10,6 @@ var InputField = React.createClass({
         var val = e.target.value;
 
         this.setState({value: val});
-
-        console.log(val);
     },
 
 

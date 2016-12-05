@@ -20457,7 +20457,7 @@ var Calc = React.createClass({
     displayName: 'Calc',
 
 
-    mathIt: function (e) {
+    addMe: function (e) {
 
         var valueStorage = {
 
@@ -20465,15 +20465,13 @@ var Calc = React.createClass({
             value2: parseInt(this.refs.input2.state.value)
         };
 
-        this.refs.result1.setState({ value: valueStorage.value1 + valueStorage.value2 }), console.log(valueStorage.value1);
-        console.log(valueStorage.value2);
-        console.log(valueStorage.value1 + valueStorage.value2);
+        this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
     },
 
     clear: function (e) {
         this.refs.input1.clear();
         this.refs.input2.clear();
-        this.refs.result1.clear();
+        this.refs.result.clear();
     },
 
     render: function () {
@@ -20490,7 +20488,7 @@ var Calc = React.createClass({
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.mathIt },
+                        { className: 'btn btn-primary', onClick: this.addMe },
                         'Add'
                     ),
                     React.createElement(
@@ -20498,7 +20496,7 @@ var Calc = React.createClass({
                         { className: 'btn btn-primary', onClick: this.clear },
                         'Clear'
                     ),
-                    React.createElement(Result, { ref: 'result1' })
+                    React.createElement(Result, { ref: 'result' })
                 )
             )
         );
@@ -20521,8 +20519,6 @@ var InputField = React.createClass({
         var val = e.target.value;
 
         this.setState({ value: val });
-
-        console.log(val);
     },
 
     clear: function () {

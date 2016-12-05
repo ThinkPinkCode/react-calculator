@@ -5,7 +5,7 @@ var Result = require('./Result.jsx');
 
 var Calc = React.createClass({
 
-    mathIt: function (e) {
+    addMe: function (e) {
 
         var valueStorage = {
 
@@ -13,22 +13,16 @@ var Calc = React.createClass({
             value2: parseInt(this.refs.input2.state.value),
         };
 
-
-        this.refs.result1.setState({value:(valueStorage.value1 + valueStorage.value2)}),
-
-
-
-        console.log(valueStorage.value1);
-        console.log(valueStorage.value2);
-        console.log(valueStorage.value1 + valueStorage.value2);
-
-
+        this.refs.result.setState({value:(valueStorage.value1 + valueStorage.value2)})
     },
+
+
+
 
     clear: function(e){
         this.refs.input1.clear();
         this.refs.input2.clear();
-        this.refs.result1.clear();
+        this.refs.result.clear();
 
     },
 
@@ -40,9 +34,9 @@ var Calc = React.createClass({
                     <div className="panel panel-body">
                         <InputField ref="input1"/>
                         <InputField ref="input2"/>
-                        <button className="btn btn-primary" onClick={this.mathIt}>Add</button>
+                        <button className="btn btn-primary" onClick={this.addMe}>Add</button>
                         <button className="btn btn-primary" onClick={this.clear}>Clear</button>
-                        <Result ref="result1"/>
+                        <Result ref="result"/>
 
                     </div>
                 </div>
