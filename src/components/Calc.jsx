@@ -6,8 +6,8 @@ var NameField = require('./NameFields.jsx');
 var Calc = React.createClass({
 
     onSubmit: function(e) {
-        if (!this.refs.fieldEmail.state.valid){
-            alert("Problem with email");
+        if (!this.refs.input1.state.valid || !this.refs.input2.state.valid){
+            alert("Invalid entry. Please make sure your values are numbers!");
         }
         else {
             //send request to email host or server
@@ -16,8 +16,8 @@ var Calc = React.createClass({
                 firstName: this.refs.fieldName.state.value,
             };
 
-            this.refs.fieldEmail.clear();
-            this.refs.fieldName.clear();
+            this.refs.input1.clear();
+            this.refs.input2.clear();
         }
 
     },
@@ -30,7 +30,8 @@ var Calc = React.createClass({
                     <div className="panel panel-body">
                         <NameField type="First" ref="fieldName"/>
                         <br/>
-                        <EmailField ref="fieldEmail"/>
+                        <InputField ref="input1"/>
+                        <InputField ref="input2"/>
                         <button className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
 
                     </div>

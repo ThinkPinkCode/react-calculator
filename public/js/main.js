@@ -20457,8 +20457,8 @@ var Calc = React.createClass({
 
 
     onSubmit: function (e) {
-        if (!this.refs.fieldEmail.state.valid) {
-            alert("Problem with email");
+        if (!this.refs.input1.state.valid || !this.refs.input2.state.valid) {
+            alert("Invalid entry. Please make sure your values are numbers!");
         } else {
             //send request to email host or server
             var httpRequestBody = {
@@ -20466,8 +20466,8 @@ var Calc = React.createClass({
                 firstName: this.refs.fieldName.state.value
             };
 
-            this.refs.fieldEmail.clear();
-            this.refs.fieldName.clear();
+            this.refs.input1.clear();
+            this.refs.input2.clear();
         }
     },
 
@@ -20483,7 +20483,8 @@ var Calc = React.createClass({
                     { className: 'panel panel-body' },
                     React.createElement(NameField, { type: 'First', ref: 'fieldName' }),
                     React.createElement('br', null),
-                    React.createElement(EmailField, { ref: 'fieldEmail' }),
+                    React.createElement(InputField, { ref: 'input1' }),
+                    React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
                         { className: 'btn btn-primary', onClick: this.onSubmit },
@@ -20510,11 +20511,7 @@ var InputField = React.createClass({
     onChange: function (e) {
         var val = e.target.value;
 
-        if (!validator.validate(e.target.value)) {
-            this.setState({ valid: false, value: val });
-        } else {
-            this.setState({ valid: true, value: val });
-        }
+        this.setState({ valid: true, value: val });
     },
 
     clear: function () {
@@ -20522,16 +20519,16 @@ var InputField = React.createClass({
     },
 
     render: function () {
-        var formClass = this.state.valid ? "form-group" : "form-group has-error";
+        var formClass = this.state.valid ? "form-group" : "form-group has-error"; //what to do with this?
         return React.createElement(
             "div",
             { className: formClass },
-            React.createElement("input", { className: "form-control", onChange: this.onChange, placeholder: "Email", value: this.state.value })
+            React.createElement("input", { className: "form-control", onChange: this.onChange, placeholder: "Value", value: this.state.value })
         );
     }
 });
 
-module.exports = EmailField;
+module.exports = InputField;
 
 },{"react":177}],180:[function(require,module,exports){
 var React = require('react');

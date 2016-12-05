@@ -8,12 +8,7 @@ var InputField = React.createClass({
     onChange: function (e) {
         var val = e.target.value;
 
-        if(!validator.validate(e.target.value)){
-            this.setState({valid: false, value: val})
-        }
-        else {
-            this.setState({valid: true, value: val});
-        }
+        this.setState({valid: true, value: val});
     },
 
     clear: function(){
@@ -21,14 +16,14 @@ var InputField = React.createClass({
     },
 
     render: function () {
-        var formClass = this.state.valid ? "form-group" : "form-group has-error";
+        var formClass = this.state.valid ? "form-group" : "form-group has-error"; //what to do with this?
         return (
             <div className={formClass}>
-                <input className="form-control" onChange={this.onChange} placeholder="Email" value={this.state.value}/>
+                <input className="form-control" onChange={this.onChange} placeholder="Value" value={this.state.value}/>
             </div>
 
         );
     }
 });
 
-module.exports = EmailField;
+module.exports = InputField;
