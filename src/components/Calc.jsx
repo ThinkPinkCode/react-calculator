@@ -34,7 +34,7 @@ var Calc = React.createClass({
 
     },
 
-    clear: function(e){
+    clear: function (e) {
         this.refs.input1.clear();
         this.refs.input2.clear();
         this.refs.result.clear();
@@ -44,11 +44,19 @@ var Calc = React.createClass({
 
     render: function () {
         return (
-            <div className="col-sm-6">
+            <div className="col-md-offset-3 col-md-6 ">
                 <div className="panel panel-default">
+                    <div className="panel panel-heading">
+                        <h3 className="panel-title text-center">Simple Calculator</h3>
+                    </div>
                     <div className="panel panel-body">
-                        <InputField ref="input1"/>
-                        <InputField ref="input2"/>
+                        <div className="col-md-4">
+                            <InputField ref="input1"/>
+                            <br/>
+                            <InputField ref="input2"/>
+                        </div>
+
+
                         <button className="btn btn-primary" onClick={this.onChange} value={"add"}>Add</button>
                         <button className="btn btn-primary" onClick={this.onChange} value={"subtract"}>Subtract</button>
                         <button className="btn btn-primary" onClick={this.onChange} value={"multiply"}>Multiply</button>

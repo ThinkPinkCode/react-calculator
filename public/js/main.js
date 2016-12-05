@@ -20494,15 +20494,29 @@ var Calc = React.createClass({
     render: function () {
         return React.createElement(
             'div',
-            { className: 'col-sm-6' },
+            { className: 'col-md-offset-3 col-md-6 ' },
             React.createElement(
                 'div',
                 { className: 'panel panel-default' },
                 React.createElement(
                     'div',
+                    { className: 'panel panel-heading' },
+                    React.createElement(
+                        'h3',
+                        { className: 'panel-title text-center' },
+                        'Simple Calculator'
+                    )
+                ),
+                React.createElement(
+                    'div',
                     { className: 'panel panel-body' },
-                    React.createElement(InputField, { ref: 'input1' }),
-                    React.createElement(InputField, { ref: 'input2' }),
+                    React.createElement(
+                        'div',
+                        { className: 'col-md-4' },
+                        React.createElement(InputField, { ref: 'input1' }),
+                        React.createElement('br', null),
+                        React.createElement(InputField, { ref: 'input2' })
+                    ),
                     React.createElement(
                         'button',
                         { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
