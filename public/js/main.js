@@ -20451,7 +20451,6 @@ module.exports = require('./lib/React');
 var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
-//var Operation = require('./Operation.jsx');
 
 var Calc = React.createClass({
     displayName: 'Calc',
