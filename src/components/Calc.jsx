@@ -1,13 +1,25 @@
 var React = require('react');
 var InputField = require('./InputField.jsx');
-var sumResult;
 
 var Calc = React.createClass({
 
-    addValues: function(){
-        console.log(input1.state.value);
+    toAdd: function(e) {
+
+        var valueStorage = {
+
+            value1: this.refs.input1.state.value,
+            value2: this.refs.input2.state.value,
+        };
+
+            console.log(valueStorage.value1);
+            console.log(valueStorage.value2);
+
+            this.refs.input1.clear();
+            this.refs.input2.clear();
+
 
     },
+
 
     render: function() {
         return(
@@ -16,12 +28,14 @@ var Calc = React.createClass({
                     <div className="panel panel-body">
                         <InputField ref="input1"/>
                         <InputField ref="input2"/>
-                        <button className="btn btn-primary" onClick={this.addValues}>Add</button>
+                        <button className="btn btn-primary" onClick={this.toAdd}>Add</button>
 
                     </div>
                 </div>
             </div>
         );
+
+
 
     }
 });

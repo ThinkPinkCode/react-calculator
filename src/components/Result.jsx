@@ -1,7 +1,7 @@
 var React = require('react');
 
 
-var InputField = React.createClass({
+var Result = React.createClass({
     getInitialState: function(){
         return {value: ""}
     },
@@ -21,9 +21,7 @@ var InputField = React.createClass({
 
     render: function () {
         return (
-            <div>
-                <input className="form-control" onChange={this.onChange} placeholder="Value" value={this.state.value}/>
-            </div>
+            <div className=".well-sm" onChange={this.onChange} placeholder="Result" value={this.state.value}/>
 
         );
     }

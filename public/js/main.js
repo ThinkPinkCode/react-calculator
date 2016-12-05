@@ -20450,14 +20450,24 @@ module.exports = require('./lib/React');
 },{"./lib/React":155}],178:[function(require,module,exports){
 var React = require('react');
 var InputField = require('./InputField.jsx');
-var sumResult;
 
 var Calc = React.createClass({
     displayName: 'Calc',
 
 
-    addValues: function () {
-        console.log(input1.state.value);
+    toAdd: function (e) {
+
+        var valueStorage = {
+
+            value1: this.refs.input1.state.value,
+            value2: this.refs.input2.state.value
+        };
+
+        console.log(valueStorage.value1);
+        console.log(valueStorage.value2);
+
+        this.refs.input1.clear();
+        this.refs.input2.clear();
     },
 
     render: function () {
@@ -20474,7 +20484,7 @@ var Calc = React.createClass({
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.addValues },
+                        { className: 'btn btn-primary', onClick: this.toAdd },
                         'Add'
                     )
                 )
@@ -20492,24 +20502,25 @@ var InputField = React.createClass({
     displayName: "InputField",
 
     getInitialState: function () {
-        return { valid: true, value: "" };
+        return { value: "" };
     },
 
     onChange: function (e) {
         var val = e.target.value;
 
-        this.setState({ valid: true, value: val });
+        this.setState({ value: val });
+
+        console.log(val);
     },
 
     clear: function () {
-        this.setState({ valid: true, value: "" });
+        this.setState({ value: "" });
     },
 
     render: function () {
-        var formClass = this.state.valid ? "form-group" : "form-group has-error"; //what to do with this?
         return React.createElement(
             "div",
-            { className: formClass },
+            null,
             React.createElement("input", { className: "form-control", onChange: this.onChange, placeholder: "Value", value: this.state.value })
         );
     }
