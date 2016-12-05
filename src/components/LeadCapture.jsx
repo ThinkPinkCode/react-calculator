@@ -15,6 +15,9 @@ var LeadCapture = React.createClass({
                 email: this.refs.fieldEmail.state.value,
                 firstName: this.refs.fieldName.state.value,
             };
+
+            this.refs.fieldEmail.clear();
+            this.refs.fieldName.clear();
         }
 
     },
@@ -26,6 +29,7 @@ var LeadCapture = React.createClass({
                 <div className="panel panel-default">
                     <div className="panel panel-body">
                         <NameField type="First" ref="fieldName"/>
+                        <br/>
                         <EmailField ref="fieldEmail"/>
                         <button className="btn btn-primary" onClick={this.onSubmit}>Submit</button>
 

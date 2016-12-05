@@ -20516,6 +20516,10 @@ var EmailField = React.createClass({
         }
     },
 
+    clear: function () {
+        this.setState({ valid: true, value: "" });
+    },
+
     render: function () {
         var formClass = this.state.valid ? "form-group" : "form-group has-error";
         return React.createElement(
@@ -20546,6 +20550,9 @@ var LeadCapture = React.createClass({
                 email: this.refs.fieldEmail.state.value,
                 firstName: this.refs.fieldName.state.value
             };
+
+            this.refs.fieldEmail.clear();
+            this.refs.fieldName.clear();
         }
     },
 
@@ -20560,6 +20567,7 @@ var LeadCapture = React.createClass({
                     'div',
                     { className: 'panel panel-body' },
                     React.createElement(NameField, { type: 'First', ref: 'fieldName' }),
+                    React.createElement('br', null),
                     React.createElement(EmailField, { ref: 'fieldEmail' }),
                     React.createElement(
                         'button',
@@ -20586,6 +20594,10 @@ var NameField = React.createClass({
 
     onChange: function (e) {
         this.setState({ value: e.target.value });
+    },
+
+    clear: function () {
+        this.setState({ value: "" });
     },
 
     render: function () {

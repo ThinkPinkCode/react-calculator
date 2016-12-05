@@ -9,6 +9,10 @@ var NameField = React.createClass({
         this.setState({value: e.target.value});
     },
 
+    clear: function(){
+        this.setState({value: ""});
+    },
+
 
     render: function() {
         return(
