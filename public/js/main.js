@@ -20450,6 +20450,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":155}],178:[function(require,module,exports){
 var React = require('react');
 var InputField = require('./InputField.jsx');
+var Result = require('./Result.jsx');
 
 var Calc = React.createClass({
     displayName: 'Calc',
@@ -20486,7 +20487,8 @@ var Calc = React.createClass({
                         'button',
                         { className: 'btn btn-primary', onClick: this.toAdd },
                         'Add'
-                    )
+                    ),
+                    React.createElement(Result, null)
                 )
             )
         );
@@ -20495,7 +20497,7 @@ var Calc = React.createClass({
 
 module.exports = Calc;
 
-},{"./InputField.jsx":179,"react":177}],179:[function(require,module,exports){
+},{"./InputField.jsx":179,"./Result.jsx":180,"react":177}],179:[function(require,module,exports){
 var React = require('react');
 
 var InputField = React.createClass({
@@ -20530,9 +20532,46 @@ module.exports = InputField;
 
 },{"react":177}],180:[function(require,module,exports){
 var React = require('react');
+
+var Result = React.createClass({
+    displayName: "Result",
+
+    getInitialState: function () {
+        return { value: "" };
+    },
+
+    onChange: function (e) {
+        var val = e.target.value;
+
+        this.setState({ value: val });
+
+        console.log(val);
+    },
+
+    clear: function () {
+        this.setState({ value: "" });
+    },
+
+    render: function () {
+        return React.createElement(
+            "div",
+            null,
+            React.createElement(
+                "p",
+                null,
+                "Result"
+            )
+        );
+    }
+});
+
+module.exports = Result;
+
+},{"react":177}],181:[function(require,module,exports){
+var React = require('react');
 var ReactDOM = require('react-dom');
 var Calc = require('./components/Calc.jsx');
 
 ReactDOM.render(React.createElement(Calc, null), document.getElementById('calc'));
 
-},{"./components/Calc.jsx":178,"react":177,"react-dom":26}]},{},[180]);
+},{"./components/Calc.jsx":178,"react":177,"react-dom":26}]},{},[181]);

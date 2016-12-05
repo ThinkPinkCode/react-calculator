@@ -1,5 +1,6 @@
 var React = require('react');
 var InputField = require('./InputField.jsx');
+var Result = require('./Result.jsx');
 
 var Calc = React.createClass({
 
@@ -29,6 +30,7 @@ var Calc = React.createClass({
                         <InputField ref="input1"/>
                         <InputField ref="input2"/>
                         <button className="btn btn-primary" onClick={this.toAdd}>Add</button>
+                        <Result/>
 
                     </div>
                 </div>

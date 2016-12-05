@@ -21,10 +21,14 @@ var Result = React.createClass({
 
     render: function () {
         return (
-            <div className=".well-sm" onChange={this.onChange} placeholder="Result" value={this.state.value}/>
+            <div>
+                <p>Result</p>
+            </div>
 
         );
     }
 });
 
-module.exports = InputField;
+
+
+module.exports = Result;
