@@ -1,6 +1,6 @@
 var React = require('react');
 
-var NameField = React.createClass({
+var Operation = React.createClass({
     getInitialState: function() {
         return {value: ""};
     },
@@ -25,4 +25,4 @@ var NameField = React.createClass({
     }
 });
 
-module.exports = NameField;
+module.exports = Operation;

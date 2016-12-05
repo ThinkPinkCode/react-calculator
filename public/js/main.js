@@ -20450,7 +20450,7 @@ module.exports = require('./lib/React');
 },{"./lib/React":155}],178:[function(require,module,exports){
 var React = require('react');
 var InputField = require('./InputField.jsx');
-var NameField = require('./NameFields.jsx');
+var NameField = require('./Operation.jsx');
 
 var Calc = React.createClass({
     displayName: 'Calc',

@@ -1,6 +1,6 @@
 var React = require('react');
 var InputField = require('./InputField.jsx');
-var NameField = require('./NameFields.jsx');
+var Operation = require('./Operation.jsx');
 
 
 var Calc = React.createClass({
@@ -16,8 +16,8 @@ var Calc = React.createClass({
                 firstName: this.refs.fieldName.state.value,
             };
 
-            this.refs.input1.clear();
-            this.refs.input2.clear();
+        this.refs.input1.clear();
+        this.refs.input2.clear();
         }
 
     },
@@ -28,7 +28,7 @@ var Calc = React.createClass({
             <div className="col-sm-3">
                 <div className="panel panel-default">
                     <div className="panel panel-body">
-                        <NameField type="First" ref="fieldName"/>
+                        <Operation type="First" ref="fieldName"/>
                         <br/>
                         <InputField ref="input1"/>
                         <InputField ref="input2"/>
