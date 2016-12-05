@@ -5,7 +5,7 @@ var Result = require('./Result.jsx');
 
 var Calc = React.createClass({
 
-    addMe: function (e) {
+    add: function (e) {
 
         var valueStorage = {
 
@@ -14,6 +14,40 @@ var Calc = React.createClass({
         };
 
         this.refs.result.setState({value:(valueStorage.value1 + valueStorage.value2)})
+    },
+
+
+    subtract: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value),
+        };
+
+        this.refs.result.setState({value:(valueStorage.value1 - valueStorage.value2)})
+    },
+
+    divide: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value),
+        };
+
+        this.refs.result.setState({value:(valueStorage.value1 / valueStorage.value2)})
+    },
+
+    multiply: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value),
+        };
+
+        this.refs.result.setState({value:(valueStorage.value1 * valueStorage.value2)})
     },
 
 
@@ -29,13 +63,16 @@ var Calc = React.createClass({
 
     render: function () {
         return (
-            <div className="col-sm-3">
+            <div className="col-sm-6">
                 <div className="panel panel-default">
                     <div className="panel panel-body">
                         <InputField ref="input1"/>
                         <InputField ref="input2"/>
-                        <button className="btn btn-primary" onClick={this.addMe}>Add</button>
-                        <button className="btn btn-primary" onClick={this.clear}>Clear</button>
+                        <button className="btn btn-primary" onClick={this.add}>Add</button>
+                        <button className="btn btn-primary" onClick={this.subtract}>Subtract</button>
+                        <button className="btn btn-primary" onClick={this.divide}>Divide</button>
+                        <button className="btn btn-primary" onClick={this.multiply}>Multiply</button>
+                        <button className="btn btn-warning" onClick={this.clear}>Clear</button>
                         <Result ref="result"/>
 
                     </div>

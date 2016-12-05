@@ -20457,7 +20457,7 @@ var Calc = React.createClass({
     displayName: 'Calc',
 
 
-    addMe: function (e) {
+    add: function (e) {
 
         var valueStorage = {
 
@@ -20466,6 +20466,39 @@ var Calc = React.createClass({
         };
 
         this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
+    },
+
+    subtract: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value)
+        };
+
+        this.refs.result.setState({ value: valueStorage.value1 - valueStorage.value2 });
+    },
+
+    divide: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value)
+        };
+
+        this.refs.result.setState({ value: valueStorage.value1 / valueStorage.value2 });
+    },
+
+    multiply: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value)
+        };
+
+        this.refs.result.setState({ value: valueStorage.value1 * valueStorage.value2 });
     },
 
     clear: function (e) {
@@ -20477,7 +20510,7 @@ var Calc = React.createClass({
     render: function () {
         return React.createElement(
             'div',
-            { className: 'col-sm-3' },
+            { className: 'col-sm-6' },
             React.createElement(
                 'div',
                 { className: 'panel panel-default' },
@@ -20488,12 +20521,27 @@ var Calc = React.createClass({
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.addMe },
+                        { className: 'btn btn-primary', onClick: this.add },
                         'Add'
                     ),
                     React.createElement(
                         'button',
-                        { className: 'btn btn-primary', onClick: this.clear },
+                        { className: 'btn btn-primary', onClick: this.subtract },
+                        'Subtract'
+                    ),
+                    React.createElement(
+                        'button',
+                        { className: 'btn btn-primary', onClick: this.divide },
+                        'Divide'
+                    ),
+                    React.createElement(
+                        'button',
+                        { className: 'btn btn-primary', onClick: this.multiply },
+                        'Multiply'
+                    ),
+                    React.createElement(
+                        'button',
+                        { className: 'btn btn-warning', onClick: this.clear },
                         'Clear'
                     ),
                     React.createElement(Result, { ref: 'result' })
