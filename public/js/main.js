@@ -20508,6 +20508,7 @@ module.exports = Result;
 var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
+var buttonSetOptions = require('./buttonSetOptions.jsx');
 
 var SimpleCalc = React.createClass({
     displayName: 'SimpleCalc',
@@ -20562,37 +20563,8 @@ var SimpleCalc = React.createClass({
                     'div',
                     { className: 'panel panel-body' },
                     React.createElement(InputField, { ref: 'input1' }),
-                    '/*TODO: How can I make placeholder different for each ("Value 1, Value 2", etc.)? */',
                     React.createElement(InputField, { ref: 'input2' }),
-                    React.createElement(
-                        'div',
-                        { className: 'btn-group', role: 'group' },
-                        React.createElement(
-                            'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
-                            'Add'
-                        ),
-                        React.createElement(
-                            'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "subtract" },
-                            'Subtract'
-                        ),
-                        React.createElement(
-                            'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "multiply" },
-                            'Multiply'
-                        ),
-                        React.createElement(
-                            'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "divide" },
-                            'Divide'
-                        ),
-                        React.createElement(
-                            'button',
-                            { className: 'btn btn-warning', onClick: this.clear },
-                            'Clear'
-                        )
-                    ),
+                    React.createElement('buttonSetOptions', { ref: 'buttons' }),
                     React.createElement(Result, { ref: 'result' })
                 )
             )
@@ -20602,7 +20574,7 @@ var SimpleCalc = React.createClass({
 
 module.exports = SimpleCalc;
 
-},{"./InputField.jsx":178,"./Result.jsx":179,"react":177}],181:[function(require,module,exports){
+},{"./InputField.jsx":178,"./Result.jsx":179,"./buttonSetOptions.jsx":182,"react":177}],181:[function(require,module,exports){
 var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
@@ -20684,6 +20656,59 @@ module.exports = TipCalc;
 
 },{"./InputField.jsx":178,"./Result.jsx":179,"react":177}],182:[function(require,module,exports){
 var React = require('react');
+
+var buttonSetOptions = React.createClass({
+    displayName: "buttonSetOptions",
+
+    render: function () {
+        return (
+
+            // <div className="btn-group">
+            //     <button className="btn btn-primary" onClick={this.onChange} value={"add"}>Add</button>
+            //     <button className="btn btn-primary" onClick={this.onChange} value={"subtract"}>Subtract</button>
+            //     <button className="btn btn-primary" onClick={this.onChange} value={"multiply"}>Multiply</button>
+            //     <button className="btn btn-primary" onClick={this.onChange} value={"divide"}>Divide</button>
+            //     <button className="btn btn-warning" onClick={this.clear}>Clear</button>
+            // </div>
+
+            React.createElement(
+                "div",
+                { className: "btn-group" },
+                React.createElement(
+                    "button",
+                    { className: "btn btn-primary", onClick: this.onChange, value: "add" },
+                    "Add"
+                ),
+                React.createElement(
+                    "button",
+                    { className: "btn btn-primary", onClick: this.onChange, value: "subtract" },
+                    "Subtract"
+                ),
+                React.createElement(
+                    "button",
+                    { className: "btn btn-primary", onClick: this.onChange, value: "multiply" },
+                    "Multiply"
+                ),
+                React.createElement(
+                    "button",
+                    { className: "btn btn-primary", onClick: this.onChange, value: "divide" },
+                    "Divide"
+                ),
+                React.createElement(
+                    "button",
+                    { className: "btn btn-warning", onClick: this.clear },
+                    "Clear"
+                )
+            )
+        );
+    }
+
+});
+
+module.exports = buttonSetOptions;
+
+},{"react":177}],183:[function(require,module,exports){
+var React = require('react');
 var ReactDOM = require('react-dom');
 var SimpleCalc = require('./components/SimpleCalc.jsx');
 var TipCalc = require('./components/TipCalc.jsx');
@@ -20691,4 +20716,4 @@ var TipCalc = require('./components/TipCalc.jsx');
 ReactDOM.render(React.createElement(SimpleCalc, null), document.getElementById('simpleCalc'));
 ReactDOM.render(React.createElement(TipCalc, null), document.getElementById('tipCalc'));
 
-},{"./components/SimpleCalc.jsx":180,"./components/TipCalc.jsx":181,"react":177,"react-dom":26}]},{},[182]);
+},{"./components/SimpleCalc.jsx":180,"./components/TipCalc.jsx":181,"react":177,"react-dom":26}]},{},[183]);

@@ -1,6 +1,7 @@
 var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
+var buttonSetOptions = require('./buttonSetOptions.jsx');
 
 var SimpleCalc = React.createClass({
 
@@ -47,19 +48,11 @@ var SimpleCalc = React.createClass({
                     <div className="panel panel-body">
 
                         <InputField ref="input1"/>
-                        /*TODO: How can I make placeholder different for each ("Value 1, Value 2", etc.)? */
+                        {/*TODO: How can I make placeholder different for each ("Value 1, Value 2", etc.)? */}
 
                         <InputField ref="input2"/>
 
-                        <div className="btn-group" role="group">
-                            <button className="btn btn-primary" onClick={this.onChange} value={"add"}>Add</button>
-                            <button className="btn btn-primary" onClick={this.onChange} value={"subtract"}>Subtract
-                            </button>
-                            <button className="btn btn-primary" onClick={this.onChange} value={"multiply"}>Multiply
-                            </button>
-                            <button className="btn btn-primary" onClick={this.onChange} value={"divide"}>Divide</button>
-                            <button className="btn btn-warning" onClick={this.clear}>Clear</button>
-                        </div>
+                        <buttonSetOptions ref="buttons"/>
 
 
                         <Result ref="result"/>
