@@ -20618,14 +20618,10 @@ var TipCalc = React.createClass({
 
     onChange: function (e) {
 
-        var valueStorage = {
-
-            value1: parseInt(this.refs.input1.state.value)
-        };
-
+        var value1 = parseInt(this.refs.input1.state.value);
         var mathOp = e.target.value;
 
-        this.refs.result.setState({ value: "$" + valueStorage.value1 * mathOp });
+        this.refs.result.setState({ value: "$" + value1 * mathOp });
     },
 
     clear: function (e) {
