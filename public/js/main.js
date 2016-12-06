@@ -20562,7 +20562,6 @@ var SimpleCalc = React.createClass({
                     'div',
                     { className: 'panel panel-body' },
                     React.createElement(InputField, { ref: 'input1' }),
-                    '/*TODO: How can I make placeholder different for each ("Value 1, Value 2", etc.)? */',
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'div',
@@ -20593,7 +20592,6 @@ var SimpleCalc = React.createClass({
                             'Clear'
                         )
                     ),
-                    '/*TODO: How can I make these buttons re-usable for the different calculators and just pass in values? */',
                     React.createElement(Result, { ref: 'result' })
                 )
             )
@@ -20688,14 +20686,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var SimpleCalc = require('./components/SimpleCalc.jsx');
 var TipCalc = require('./components/TipCalc.jsx');
-/*TODO: Should I use var or const/let ? Current course uses var, but is const/let better? */
 
 ReactDOM.render(React.createElement(SimpleCalc, null), document.getElementById('simpleCalc'));
 ReactDOM.render(React.createElement(TipCalc, null), document.getElementById('tipCalc'));
-
-/*General questions:
- TODO: where would Flux or Redux come in?
- TODO: how could this be written using "component will mount" etc? Is that better?
-  */
 
 },{"./components/SimpleCalc.jsx":180,"./components/TipCalc.jsx":181,"react":177,"react-dom":26}]},{},[182]);
