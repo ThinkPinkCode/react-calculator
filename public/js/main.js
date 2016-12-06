@@ -20620,34 +20620,16 @@ var TipCalc = React.createClass({
 
         var valueStorage = {
 
-            value1: parseInt(this.refs.input1.state.value),
-            value2: parseInt(this.refs.input2.state.value)
+            value1: parseInt(this.refs.input1.state.value)
         };
 
         var mathOp = e.target.value;
 
-        switch (mathOp) {
-            case "add":
-                this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
-                break;
-            case "subtract":
-                this.refs.result.setState({ value: valueStorage.value1 - valueStorage.value2 });
-                break;
-            case "multiply":
-                this.refs.result.setState({ value: valueStorage.value1 * valueStorage.value2 });
-                break;
-            case "divide":
-                this.refs.result.setState({ value: valueStorage.value1 / valueStorage.value2 });
-                break;
-            default:
-                console.log("nope");
-
-        }
+        this.refs.result.setState({ value: "$" + valueStorage.value1 * mathOp });
     },
 
     clear: function (e) {
         this.refs.input1.clear();
-        this.refs.input2.clear();
         this.refs.result.clear();
     },
 
@@ -20676,23 +20658,23 @@ var TipCalc = React.createClass({
                         { className: 'btn-group', role: 'group' },
                         React.createElement(
                             'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
-                            'Add'
+                            { className: 'btn btn-primary', onClick: this.onChange, value: ".1" },
+                            '10%'
                         ),
                         React.createElement(
                             'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "subtract" },
-                            'Subtract'
+                            { className: 'btn btn-primary', onClick: this.onChange, value: ".15" },
+                            '15%'
                         ),
                         React.createElement(
                             'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "multiply" },
-                            'Multiply'
+                            { className: 'btn btn-primary', onClick: this.onChange, value: ".2" },
+                            '20%'
                         ),
                         React.createElement(
                             'button',
-                            { className: 'btn btn-primary', onClick: this.onChange, value: "divide" },
-                            'Divide'
+                            { className: 'btn btn-primary', onClick: this.onChange, value: ".25" },
+                            '25%'
                         ),
                         React.createElement(
                             'button',
