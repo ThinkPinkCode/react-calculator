@@ -20515,30 +20515,24 @@ var SimpleCalc = React.createClass({
 
     onChange: function (e) {
 
-        var valueStorage = {
-
-            value1: parseInt(this.refs.input1.state.value),
-            value2: parseInt(this.refs.input2.state.value)
-        };
+        var value1 = parseInt(this.refs.input1.state.value);
+        var value2 = parseInt(this.refs.input2.state.value);
 
         var mathOp = e.target.value;
 
         switch (mathOp) {
             case "add":
-                this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
+                this.refs.result.setState({ value: value1 + value2 });
                 break;
             case "subtract":
-                this.refs.result.setState({ value: valueStorage.value1 - valueStorage.value2 });
+                this.refs.result.setState({ value: value1 - value2 });
                 break;
             case "multiply":
-                this.refs.result.setState({ value: valueStorage.value1 * valueStorage.value2 });
+                this.refs.result.setState({ value: value1 * value2 });
                 break;
             case "divide":
-                this.refs.result.setState({ value: valueStorage.value1 / valueStorage.value2 });
+                this.refs.result.setState({ value: value1 / value2 });
                 break;
-            default:
-                console.log("nope");
-
         }
     },
 
@@ -20568,6 +20562,7 @@ var SimpleCalc = React.createClass({
                     'div',
                     { className: 'panel panel-body' },
                     React.createElement(InputField, { ref: 'input1' }),
+                    '/*TODO: How can I make placeholder different for each ("Value 1, Value 2", etc.)? */',
                     React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'div',
