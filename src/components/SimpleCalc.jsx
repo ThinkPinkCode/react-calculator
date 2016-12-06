@@ -60,6 +60,7 @@ var SimpleCalc = React.createClass({
                             <button className="btn btn-primary" onClick={this.onChange} value={"divide"}>Divide</button>
                             <button className="btn btn-warning" onClick={this.clear}>Clear</button>
                         </div>
+                        /*TODO: How can I make these buttons re-usable for the different calculators and just pass in values? */
 
 
                         <Result ref="result"/>
