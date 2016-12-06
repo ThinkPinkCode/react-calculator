@@ -20510,37 +20510,36 @@ var Calc = React.createClass({
                 React.createElement(
                     'div',
                     { className: 'panel panel-body' },
+                    React.createElement(InputField, { ref: 'input1' }),
+                    React.createElement(InputField, { ref: 'input2' }),
                     React.createElement(
                         'div',
-                        { className: 'col-md-4' },
-                        React.createElement(InputField, { ref: 'input1' }),
-                        React.createElement('br', null),
-                        React.createElement(InputField, { ref: 'input2' })
-                    ),
-                    React.createElement(
-                        'button',
-                        { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
-                        'Add'
-                    ),
-                    React.createElement(
-                        'button',
-                        { className: 'btn btn-primary', onClick: this.onChange, value: "subtract" },
-                        'Subtract'
-                    ),
-                    React.createElement(
-                        'button',
-                        { className: 'btn btn-primary', onClick: this.onChange, value: "multiply" },
-                        'Multiply'
-                    ),
-                    React.createElement(
-                        'button',
-                        { className: 'btn btn-primary', onClick: this.onChange, value: "divide" },
-                        'Divide'
-                    ),
-                    React.createElement(
-                        'button',
-                        { className: 'btn btn-warning', onClick: this.clear },
-                        'Clear'
+                        { className: 'btn-group', role: 'group' },
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
+                            'Add'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "subtract" },
+                            'Subtract'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "multiply" },
+                            'Multiply'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "divide" },
+                            'Divide'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-warning', onClick: this.clear },
+                            'Clear'
+                        )
                     ),
                     React.createElement(Result, { ref: 'result' })
                 )
@@ -20599,14 +20598,9 @@ var Result = React.createClass({
     render: function () {
         return React.createElement(
             "div",
-            null,
-            React.createElement(
-                "p",
-                null,
-                "Result: ",
-                this.state.value,
-                " "
-            )
+            { className: "well col-md-4" },
+            "Result: ",
+            this.state.value
         );
     }
 });

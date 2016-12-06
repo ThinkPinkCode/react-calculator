@@ -14,9 +14,11 @@ var Result = React.createClass({
 
     render: function () {
         return (
-            <div>
-                <p>Result: {this.state.value} </p>
-            </div>
+
+                <div className="well col-md-4">
+                    Result: {this.state.value}
+                </div>
+
 
         );
     }

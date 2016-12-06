@@ -49,19 +49,22 @@ var Calc = React.createClass({
                     <div className="panel panel-heading">
                         <h3 className="panel-title text-center">Simple Calculator</h3>
                     </div>
+
                     <div className="panel panel-body">
-                        <div className="col-md-4">
-                            <InputField ref="input1"/>
-                            <br/>
-                            <InputField ref="input2"/>
-                        </div>
 
+                        <InputField ref="input1"/>
 
+                        <InputField ref="input2"/>
+
+                        <div className="btn-group" role="group">
                         <button className="btn btn-primary" onClick={this.onChange} value={"add"}>Add</button>
                         <button className="btn btn-primary" onClick={this.onChange} value={"subtract"}>Subtract</button>
                         <button className="btn btn-primary" onClick={this.onChange} value={"multiply"}>Multiply</button>
                         <button className="btn btn-primary" onClick={this.onChange} value={"divide"}>Divide</button>
                         <button className="btn btn-warning" onClick={this.clear}>Clear</button>
+                        </div>
+
+
                         <Result ref="result"/>
 
                     </div>
