@@ -1,5 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Calc = require('./components/Calc.jsx');
+var SimpleCalc = require('./components/SimpleCalc.jsx');
 
-ReactDOM.render(<Calc/>, document.getElementById('calc'));
+ReactDOM.render(<SimpleCalc/>, document.getElementById('simpleCalc'));

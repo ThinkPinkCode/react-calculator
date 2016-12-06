@@ -20449,11 +20449,68 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":155}],178:[function(require,module,exports){
 var React = require('react');
+
+var InputField = React.createClass({
+    displayName: "InputField",
+
+    getInitialState: function () {
+        return { value: "" };
+    },
+
+    onChange: function (e) {
+        var val = e.target.value;
+
+        this.setState({ value: val });
+    },
+
+    clear: function () {
+        this.setState({ value: "" });
+    },
+
+    render: function () {
+        return React.createElement(
+            "div",
+            null,
+            React.createElement("input", { className: "form-control", onChange: this.onChange, placeholder: "Value", value: this.state.value })
+        );
+    }
+});
+
+module.exports = InputField;
+
+},{"react":177}],179:[function(require,module,exports){
+var React = require('react');
+
+var Result = React.createClass({
+    displayName: "Result",
+
+    getInitialState: function () {
+        return { value: "" };
+    },
+
+    clear: function () {
+        this.setState({ value: "" });
+    },
+
+    render: function () {
+        return React.createElement(
+            "div",
+            { className: "well col-md-4" },
+            "Result: ",
+            this.state.value
+        );
+    }
+});
+
+module.exports = Result;
+
+},{"react":177}],180:[function(require,module,exports){
+var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
 
-var Calc = React.createClass({
-    displayName: 'Calc',
+var SimpleCalc = React.createClass({
+    displayName: 'SimpleCalc',
 
 
     onChange: function (e) {
@@ -20548,70 +20605,13 @@ var Calc = React.createClass({
     }
 });
 
-module.exports = Calc;
+module.exports = SimpleCalc;
 
-},{"./InputField.jsx":179,"./Result.jsx":180,"react":177}],179:[function(require,module,exports){
-var React = require('react');
-
-var InputField = React.createClass({
-    displayName: "InputField",
-
-    getInitialState: function () {
-        return { value: "" };
-    },
-
-    onChange: function (e) {
-        var val = e.target.value;
-
-        this.setState({ value: val });
-    },
-
-    clear: function () {
-        this.setState({ value: "" });
-    },
-
-    render: function () {
-        return React.createElement(
-            "div",
-            null,
-            React.createElement("input", { className: "form-control", onChange: this.onChange, placeholder: "Value", value: this.state.value })
-        );
-    }
-});
-
-module.exports = InputField;
-
-},{"react":177}],180:[function(require,module,exports){
-var React = require('react');
-
-var Result = React.createClass({
-    displayName: "Result",
-
-    getInitialState: function () {
-        return { value: "" };
-    },
-
-    clear: function () {
-        this.setState({ value: "" });
-    },
-
-    render: function () {
-        return React.createElement(
-            "div",
-            { className: "well col-md-4" },
-            "Result: ",
-            this.state.value
-        );
-    }
-});
-
-module.exports = Result;
-
-},{"react":177}],181:[function(require,module,exports){
+},{"./InputField.jsx":178,"./Result.jsx":179,"react":177}],181:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Calc = require('./components/Calc.jsx');
+var SimpleCalc = require('./components/SimpleCalc.jsx');
 
-ReactDOM.render(React.createElement(Calc, null), document.getElementById('calc'));
+ReactDOM.render(React.createElement(SimpleCalc, null), document.getElementById('simpleCalc'));
 
-},{"./components/Calc.jsx":178,"react":177,"react-dom":26}]},{},[181]);
+},{"./components/SimpleCalc.jsx":180,"react":177,"react-dom":26}]},{},[181]);

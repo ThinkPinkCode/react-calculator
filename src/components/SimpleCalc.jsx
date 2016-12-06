@@ -2,7 +2,7 @@ var React = require('react');
 var InputField = require('./InputField.jsx');
 var Result = require('./Result.jsx');
 
-var Calc = React.createClass({
+var SimpleCalc = React.createClass({
 
     onChange: function (e) {
 
@@ -76,4 +76,4 @@ var Calc = React.createClass({
     }
 });
 
-module.exports = Calc;
+module.exports = SimpleCalc;
