@@ -20609,9 +20609,113 @@ module.exports = SimpleCalc;
 
 },{"./InputField.jsx":178,"./Result.jsx":179,"react":177}],181:[function(require,module,exports){
 var React = require('react');
+var InputField = require('./InputField.jsx');
+var Result = require('./Result.jsx');
+
+var TipCalc = React.createClass({
+    displayName: 'TipCalc',
+
+
+    onChange: function (e) {
+
+        var valueStorage = {
+
+            value1: parseInt(this.refs.input1.state.value),
+            value2: parseInt(this.refs.input2.state.value)
+        };
+
+        var mathOp = e.target.value;
+
+        switch (mathOp) {
+            case "add":
+                this.refs.result.setState({ value: valueStorage.value1 + valueStorage.value2 });
+                break;
+            case "subtract":
+                this.refs.result.setState({ value: valueStorage.value1 - valueStorage.value2 });
+                break;
+            case "multiply":
+                this.refs.result.setState({ value: valueStorage.value1 * valueStorage.value2 });
+                break;
+            case "divide":
+                this.refs.result.setState({ value: valueStorage.value1 / valueStorage.value2 });
+                break;
+            default:
+                console.log("nope");
+
+        }
+    },
+
+    clear: function (e) {
+        this.refs.input1.clear();
+        this.refs.input2.clear();
+        this.refs.result.clear();
+    },
+
+    render: function () {
+        return React.createElement(
+            'div',
+            { className: 'col-md-offset-3 col-md-6 ' },
+            React.createElement(
+                'div',
+                { className: 'panel panel-default' },
+                React.createElement(
+                    'div',
+                    { className: 'panel panel-heading' },
+                    React.createElement(
+                        'h3',
+                        { className: 'panel-title text-center' },
+                        'Tip Calculator'
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'panel panel-body' },
+                    React.createElement(InputField, { ref: 'input1' }),
+                    React.createElement(
+                        'div',
+                        { className: 'btn-group', role: 'group' },
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "add" },
+                            'Add'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "subtract" },
+                            'Subtract'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "multiply" },
+                            'Multiply'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-primary', onClick: this.onChange, value: "divide" },
+                            'Divide'
+                        ),
+                        React.createElement(
+                            'button',
+                            { className: 'btn btn-warning', onClick: this.clear },
+                            'Clear'
+                        )
+                    ),
+                    React.createElement(Result, { ref: 'result' })
+                )
+            )
+        );
+    }
+});
+
+module.exports = TipCalc;
+
+},{"./InputField.jsx":178,"./Result.jsx":179,"react":177}],182:[function(require,module,exports){
+var React = require('react');
 var ReactDOM = require('react-dom');
 var SimpleCalc = require('./components/SimpleCalc.jsx');
+var TipCalc = require('./components/TipCalc.jsx');
 
 ReactDOM.render(React.createElement(SimpleCalc, null), document.getElementById('simpleCalc'));
+ReactDOM.render(React.createElement(TipCalc, null), document.getElementById('tipCalc'));
 
-},{"./components/SimpleCalc.jsx":180,"react":177,"react-dom":26}]},{},[181]);
+},{"./components/SimpleCalc.jsx":180,"./components/TipCalc.jsx":181,"react":177,"react-dom":26}]},{},[182]);
